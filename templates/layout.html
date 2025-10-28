@@ -1,0 +1,59 @@
+{% load static %}
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    {% block style %}
+    <link rel="stylesheet" href="">
+    {% endblock %}
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">CODE SAMPLER</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+             
+            </li>
+            <li> <a class="nav-link active" aria-current="page" href="{% url 'contact' %}">Contact Us</a></li>
+            {% if user.is_authenticated %}
+            <li> <a class="nav-link active" aria-current="page" href="{% url 'my_task' %}" class = "btn btn-primary">My-Tasks</a></li>
+            <form action="{% url 'logout' %}" method="post">
+              {% csrf_token %}
+              
+              <li> <button class = "btn btn-danger">Logout</button></li>
+            </form> 
+            {% else %}
+            <li> <a class="nav-link active" aria-current="page" href="{% url 'login' %}" class = "btn btn-primary">Login</a></li>
+            <li> <a class="nav-link active" aria-current="page" href="{% url 'new_user_registration' %}" class = "btn btn-warning">Register</a></li>
+           
+
+            {% endif %}
+          </ul>
+          <form class="d-flex" role="search" , method="post" , action="search/">
+            {% csrf_token %}
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name = "task_name">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        
+        </div>
+      </div>
+    </nav>
+    {% block content %}
+    HELLO WORLD
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

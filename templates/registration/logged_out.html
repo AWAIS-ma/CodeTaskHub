@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Log_out
+{% endblock %}
+
+{% block content %}
+<h1>succesfully logged out</h1>
+
+
+<a href="{% url 'login' %}" class="btn btn-warning btn-sm">again login here</a>
+
+<div class="mt-auto">
+    <div class="d-flex justify-content-between mb-2">
+        <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Go Back!</a>
+    </div>
+</div>
+{% endblock %}

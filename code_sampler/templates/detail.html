@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+DETAILS
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        {% for i in all_task %}
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        {% if i.task_pic %}
+                        <img src="{{ i.task_pic.url }}" class="img-fluid rounded-start" alt="{{ i.task_name }}">
+                        {% else %}
+                        <div class="d-flex align-items-center justify-content-center bg-light" style="height: 100%;">
+                            <span>No image</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ i.task_name }}</h5>
+                            <p class="card-text">{{ i.task_dec }}</p>
+                            <p class="card-text">
+                                <small class="text-muted">Last updated at {{ i.task_updated }}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5>CODE.......</h5>
+                    <pre>{{ i.task_code }}</pre>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="mt-auto">
+    <div class="d-flex justify-content-between mb-2">
+        <a href="{% url 'home' %}" class="btn btn-outline-primary btn-sm">Go Back!</a>
+    </div>
+</div>
+
+{% endblock %}

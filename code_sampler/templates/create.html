@@ -1,0 +1,17 @@
+<!-- create_task.html -->
+{% extends "layout.html" %}
+
+{% block title %}
+Create Task
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Create a New Task</h2>
+    <form method="post" enctype="multipart/form-data">  <!-- Include enctype for file uploads -->
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Render the form -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

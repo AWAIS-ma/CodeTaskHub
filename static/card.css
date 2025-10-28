@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 23%;
+    margin-bottom: 20px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.card h5 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.card p {
+    font-size: 14px;
+    color: #555;
+}
+
+.card .btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.card a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background 0.3s ease-in-out;
+}
+
+.card a.update {
+    background: #f39c12;
+}
+
+.card a.delete {
+    background: #e74c3c;
+}
+
+.card a.get-code {
+    background: #3498db;
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.card a:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 1024px) {
+    .card {
+        width: 48%;
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+    }
+}

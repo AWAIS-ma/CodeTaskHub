@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Chat with Your AI Agent 🤖</h2>
+<form method="POST">
+  {% csrf_token %}
+  <input type="text" name="query" placeholder="Ask your agent..." class="form-control">
+  <button type="submit" class="btn btn-primary mt-2">Send</button>
+</form>
+{% if response %}
+  <div class="alert alert-info mt-3">
+    <strong>Agent:</strong> {{ response }}
+  </div>
+{% endif %}
+{% endblock %}
